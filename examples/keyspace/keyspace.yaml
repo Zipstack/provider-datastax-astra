@@ -1,0 +1,10 @@
+apiVersion: keyspace.datastax-astra.upbound.io/v1alpha1
+kind: Keyspace
+metadata:
+  name: tester1
+spec:
+  forProvider:
+    databaseId: 7b860481-b0d9-4a56-83da-d7544910884a
+    name: testing
+  providerConfigRef:
+    name: default
