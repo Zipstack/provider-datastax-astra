@@ -5,18 +5,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: resources.null.template.upbound.io
+  name: keyspaces.keyspace.datastax-astra.upbound.io
 spec:
-  group: null.template.upbound.io
+  group: keyspace.datastax-astra.upbound.io
   names:
     categories:
     - crossplane
     - managed
-    - template
-    kind: Resource
-    listKind: ResourceList
-    plural: resources
-    singular: resource
+    - datastax-astra
+    kind: Keyspace
+    listKind: KeyspaceList
+    plural: keyspaces
+    singular: keyspace
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -35,7 +35,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Resource is the Schema for the Resources API. <no value>
+        description: Keyspace is the Schema for the Keyspaces API. <no value>
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ResourceSpec defines the desired state of Resource
+            description: KeyspaceSpec defines the desired state of Keyspace
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,13 +63,17 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  triggers:
-                    additionalProperties:
-                      type: string
-                    description: A map of arbitrary strings that, when changed, will
-                      force the null resource to be replaced, re-running any associated
-                      provisioners.
-                    type: object
+                  databaseId:
+                    description: Astra database to create the keyspace.
+                    type: string
+                  name:
+                    description: Keyspace name can have up to 48 alpha-numeric characters
+                      and contain underscores; only letters and numbers are supported
+                      as the first character.
+                    type: string
+                required:
+                - databaseId
+                - name
                 type: object
               providerConfigRef:
                 default:
@@ -243,7 +247,7 @@ spec:
             - forProvider
             type: object
           status:
-            description: ResourceStatus defines the observed state of Resource.
+            description: KeyspaceStatus defines the observed state of Keyspace.
             properties:
               atProvider:
                 properties:

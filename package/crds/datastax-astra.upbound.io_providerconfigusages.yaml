@@ -5,14 +5,14 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: providerconfigusages.template.upbound.io
+  name: providerconfigusages.datastax-astra.upbound.io
 spec:
-  group: template.upbound.io
+  group: datastax-astra.upbound.io
   names:
     categories:
     - crossplane
     - provider
-    - template
+    - datastax-astra
     kind: ProviderConfigUsage
     listKind: ProviderConfigUsageList
     plural: providerconfigusages

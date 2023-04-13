@@ -9,13 +9,12 @@ import (
 	_ "embed"
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
-
-	"github.com/upbound/upjet-provider-template/config/null"
+	"github.com/zipstack/provider-datastax-astra/config/keyspace"
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/upbound/upjet-provider-template"
+	resourcePrefix = "datastax-astra"
+	modulePath     = "github.com/zipstack/provider-datastax-astra"
 )
 
 //go:embed schema.json
@@ -34,7 +33,7 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		null.Configure,
+		keyspace.Configure,
 	} {
 		configure(pc)
 	}
