@@ -3,7 +3,7 @@
 
 PROJECT_NAME ?= provider-datastax-astra
 PROJECT_REPO ?= github.com/zipstack/$(PROJECT_NAME)
-
+DOCKER_REGISTRY = 822623448520.dkr.ecr.ap-south-1.amazonaws.com/provider-datastax-astra
 export TERRAFORM_VERSION ?= 1.3.3
 
 export TERRAFORM_PROVIDER_SOURCE ?= datastax/astra
