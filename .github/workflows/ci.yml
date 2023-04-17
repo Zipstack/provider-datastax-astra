@@ -233,7 +233,7 @@ jobs:
 
       - name: Login to Upbound
         uses: docker/login-action@v2
-        if: env.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR != ''
+        # if: env.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR != ''
         with:
           registry: ${{ env.ECR_REG }}
           username: ${{ secrets.AWS_ACCESS_KEY_ID }}
