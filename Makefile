@@ -56,8 +56,8 @@ UPTEST_VERSION = v0.2.1
 
 # ====================================================================================
 # Setup Images
-
-REGISTRY_ORGS ?= xpkg.upbound.io/upbound
+# xpkg.upbound.io/upbound/provider-datastax-astra:v0.0.0-9.g5b49198
+REGISTRY_ORGS ?= 822623448520.dkr.ecr.ap-south-1.amazonaws.com/provider-datastax-astra
 IMAGES = $(PROJECT_NAME)
 -include build/makelib/imagelight.mk
 
