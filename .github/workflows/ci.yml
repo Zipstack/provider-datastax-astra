@@ -13,8 +13,6 @@ env:
   GO_VERSION: '1.19'
   GOLANGCI_VERSION: 'v1.50.0'
   DOCKER_BUILDX_VERSION: 'v0.8.2'
-  AWS_REGION: ap-south-1
-  ECR_REG: 822623448520.dkr.ecr.ap-south-1.amazonaws.com
   # Common users. We can't run a step 'if secrets.XXX != ""' but we can run a
   # step 'if env.XXX != ""', so we copy these to succinctly test whether
   # credentials have been provided before trying to run steps that need them.
@@ -235,11 +233,9 @@ jobs:
         uses: docker/login-action@v2
         # if: env.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR != ''
         with:
-          registry: ${{ env.ECR_REG }}
-          username: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          password: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        env:
-          AWS_REGION: ${{ env.AWS_REGION }}
+          registry: xpkg.upbound.io
+          username: ${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR }}
+          password: ${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_PSW }}
       - name: Checkout
         uses: actions/checkout@v2
         with:

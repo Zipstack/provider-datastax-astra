@@ -3,7 +3,7 @@
 
 PROJECT_NAME ?= provider-datastax-astra
 PROJECT_REPO ?= github.com/zipstack/$(PROJECT_NAME)
-DOCKER_REGISTRY = 822623448520.dkr.ecr.ap-south-1.amazonaws.com/provider-datastax-astra
+
 export TERRAFORM_VERSION ?= 1.3.3
 
 export TERRAFORM_PROVIDER_SOURCE ?= datastax/astra
@@ -56,18 +56,17 @@ UPTEST_VERSION = v0.2.1
 
 # ====================================================================================
 # Setup Images
-# xpkg.upbound.io/upbound/provider-datastax-astra:v0.0.0-9.g5b49198
-REGISTRY_ORGS ?= 822623448520.dkr.ecr.ap-south-1.amazonaws.com/provider-datastax-astra
+REGISTRY_ORGS ?= xpkg.upbound.io/upbound
 IMAGES = $(PROJECT_NAME)
 -include build/makelib/imagelight.mk
 
 # ====================================================================================
 # Setup XPKG
 
-XPKG_REG_ORGS ?= 822623448520.dkr.ecr.ap-south-1.amazonaws.com/provider-datastax-astra
+XPKG_REG_ORGS ?= xpkg.upbound.io/upbound
 # NOTE(hasheddan): skip promoting on xpkg.upbound.io as channel tags are
 # inferred.
-XPKG_REG_ORGS_NO_PROMOTE ?= 822623448520.dkr.ecr.ap-south-1.amazonaws.com/provider-datastax-astra
+XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/upbound
 XPKGS = $(PROJECT_NAME)
 -include build/makelib/xpkg.mk
 
