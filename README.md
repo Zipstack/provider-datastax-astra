@@ -21,7 +21,7 @@ kind: Provider
 metadata:
   name: provider-datastax-astra
 spec:
-  package: zipstack/provider-datastax-astra:v0.0.1
+  package: xpkg.upbound.io/zipstack/provider-datastax-astra:v0.0.1
 EOF
 ```
 
