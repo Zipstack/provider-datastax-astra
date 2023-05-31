@@ -10,7 +10,7 @@ Datastax Astra API.
 Install the provider by using the following command after changing the image tag
 to the [latest release](https://marketplace.upbound.io/providers/zipstack/provider-datastax-astra):
 ```
-up ctp provider install zipstack/provider-datastax-astra:v0.1.0
+up ctp provider install zipstack/provider-datastax-astra:v0.0.1
 ```
 
 Alternatively, you can use declarative installation:
@@ -21,7 +21,7 @@ kind: Provider
 metadata:
   name: provider-datastax-astra
 spec:
-  package: zipstack/provider-datastax-astra:v0.1.0
+  package: zipstack/provider-datastax-astra:v0.0.1
 EOF
 ```
 
